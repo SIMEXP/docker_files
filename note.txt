@@ -1,0 +1,24 @@
+ apt-get update
+
+apt-get install dpkg-dev vim  wget -y
+
+ 
+wget  --no-check-certificate  --directory-prefix=/local_repo/octave \
+  https://launchpad.net/~octave/+archive/ubuntu/stable/+build/5921916/+files/liboctave2_3.8.1-1ubuntu1~octave1~precise1_amd64.deb \
+  https://launchpad.net/~octave/+archive/ubuntu/stable/+build/5921916/+files/octave_3.8.1-1ubuntu1~octave1~precise1_amd64.deb \
+  https://launchpad.net/~octave/+archive/ubuntu/stable/+build/5921916/+files/liboctave-dev_3.8.1-1ubuntu1~octave1~precise1_amd64.deb \
+  https://launchpad.net/~octave/+archive/ubuntu/stable/+build/5921916/+files/octave-dbg_3.8.1-1ubuntu1~octave1~precise1_amd64.deb \
+  https://launchpad.net/~octave/+archive/ubuntu/stable/+files/octave-common_3.8.1-1ubuntu1~octave1~precise1_all.deb \
+  https://launchpad.net/~octave/+archive/ubuntu/stable/+files/octave-doc_3.8.1-1ubuntu1~octave1~precise1_all.deb \
+  https://launchpad.net/~octave/+archive/ubuntu/stable/+files/octave-info_3.8.1-1ubuntu1~octave1~precise1_all.deb
+
+dpkg-scanpackages /local_repo/octave /dev/null | gzip > /local_repo/octave/Packages.gz
+
+echo "deb file:/local_repo/octave .	/" >> /etc/apt/sources.list
+
+apt-get update 
+
+apt-get install liboctave-dev
+
+
+
