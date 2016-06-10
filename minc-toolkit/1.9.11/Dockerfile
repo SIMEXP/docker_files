@@ -64,7 +64,7 @@ RUN cmake ../minc-toolkit-v2 -DCMAKE_INSTALL_PREFIX:PATH=/opt/minc-itk4 \
                   -DMT_BUILD_ELASTIX:BOOL=ON \
                   -DMT_BUILD_SHARED_LIBS:BOOL=ON \
                   -DMT_BUILD_VISUAL_TOOLS:BOOL=ON \
-                  -DMT_USE_OPENMP:BOOL=ON \
+                  -DMT_USE_OPENMP:BOOL=OFF \
                   -DCPACK_BINARY_DEB:BOOL=ON \
                   -DCPACK_BINARY_NSIS:BOOL=OFF \
                   -DCPACK_BINARY_RPM:BOOL=OFF \
@@ -88,6 +88,8 @@ RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/profile
 RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/bash.bashrc
 ADD beast-library-1.1 /opt/minc-itk4/share/beast-library-1.1
 ADD icbm152_model_09c /opt/minc-itk4/share/icbm152_model_09c
+RUN rm -r /opt/minc-itk4/pipeline 
+ADD pipeline /opt/minc-itk4/pipeline
 # Command for build 
 # docker build -t="simexp/minc-toolkit:1.9.11" .
 # Command for running
