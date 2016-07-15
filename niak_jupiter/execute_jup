@@ -1,0 +1,3 @@
+#!/bin/bash
+export OCTAVE_EXECUTABLE=/usr/bin/octave
+jupyter notebook --no-browser --port 8080 --ip=*
