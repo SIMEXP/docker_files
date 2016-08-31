@@ -2,10 +2,7 @@ FROM simexp/octave:4.0.2_ubuntu_12
 MAINTAINER Pierre-Olivier Quirion <poq@criugm.qc.ca>
 
 # Install PSOM
-RUN  mkdir -p /home/niak/extensions && cd /home/niak/extensions && wget -qO- https://github.com/SIMEXP/psom/archive/v1.2.1.tar.gz | tar -xvz
-
-#To remove the psom version number
-#RUN  kdir -p /home/niak/extensions && cd /home/niak/extensions && wget -qO- https://github.com/SIMEXP/psom/archive/v1.2.0.tar.gz | tar --transform 's/^psom-[0-9]\+.[0-9]\+.[0-9]\+/psom/' -xvz
+RUN  mkdir -p /home/niak/extensions && cd /home/niak/extensions && wget -qO- https://github.com/SIMEXP/psom/archive/v2.0.1-alpha.tar.gz | tar -xvz
 
 # Install BCT
 RUN cd /home/niak/extensions && wget https://sites.google.com/site/bctnet/Home/functions/BCT.zip && unzip BCT.zip && rm BCT.zip
@@ -21,7 +18,6 @@ RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/bash.bashrc
 
 # Command for build
 # docker build -t="simexp/niak_dependency:u12_o4" .
-# docker build -t="simexp/niak_dependency:1.1" .
 
 # Command to run bash (don't start octave)
 # docker run -i -t --rm --name niakbash -v $HOME:$HOME --user $UID:$GID simexp/niak:0.13.0 /bin/bash -c "export HOME=$HOME; export USER=$USER; cd $HOME; source /opt/minc-itk4/minc-toolkit-config.sh; exec bash"
