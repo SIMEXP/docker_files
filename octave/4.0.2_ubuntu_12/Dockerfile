@@ -27,7 +27,7 @@ RUN apt-get install --force-yes -y \
 
 RUN add-apt-repository ppa:octave/stable
 RUN apt-get update
-RUN apt-get install --force-yes -y liboctave-dev
+RUN apt-get install --force-yes -y liboctave-dev=4.0.2-1ubuntu5~octave~precise2
 
  
 # Fetch Octave forge packages
@@ -61,6 +61,8 @@ RUN octave --eval "cd /home/octave; \
 RUN echo more off >> /etc/octave.conf
 RUN echo save_default_options\(\'-7\'\)\; >> /etc/octave.conf
 RUN echo graphics_toolkit gnuplot >> /etc/octave.conf
+RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/profile
+RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/bash.bashrc
 
 # Command for build
 # docker build --no-cache -t="simexp/octave:4.0.0_ubuntu_12" .

@@ -13,9 +13,6 @@ RUN echo addpath\(genpath\(\"/home/niak/\"\)\)\; >> /etc/octave.conf
 # get rid of sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh 
 
-RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/profile
-RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/bash.bashrc
-
 # Command for build
 # docker build -t="simexp/niak_dependency:u12_o4" .
 
