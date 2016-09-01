@@ -2,13 +2,13 @@ FROM simexp/octave:4.0.2_ubuntu_12
 MAINTAINER Pierre-Olivier Quirion <poq@criugm.qc.ca>
 
 # Install PSOM
-RUN  mkdir -p /home/niak/extensions && cd /home/niak/extensions && wget -qO- https://github.com/SIMEXP/psom/archive/v2.0.1-alpha.tar.gz | tar -xvz
+RUN  mkdir -p /opt/niak/extensions && cd /opt/niak/extensions && wget -qO- https://github.com/SIMEXP/psom/archive/v2.0.2.tar.gz | tar -xvz
 
 # Install BCT
-RUN cd /home/niak/extensions && wget https://sites.google.com/site/bctnet/Home/functions/BCT.zip && unzip BCT.zip && rm BCT.zip
+RUN cd /opt/niak/extensions && wget https://sites.google.com/site/bctnet/Home/functions/BCT.zip && unzip BCT.zip && rm BCT.zip
 
 # Build octave configure file
-RUN echo addpath\(genpath\(\"/home/niak/\"\)\)\; >> /etc/octave.conf
+RUN echo addpath\(genpath\(\"/opt/niak/\"\)\)\; >> /etc/octave.conf
 
 # get rid of sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh 
