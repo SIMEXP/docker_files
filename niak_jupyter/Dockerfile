@@ -22,10 +22,10 @@ RUN pip3 install ipywidgets
 RUN mkdir /home/niak/tutorial
 WORKDIR /home/niak/tutorial
 
-ADD execute_jup execute_jup
+ADD niak_jupyter /usr/local/bin/niak_jupyter
 EXPOSE 8080
 
-ENTRYPOINT ["/bin/bash", "-il", "execute_jup"]
+#ENTRYPOINT ["/bin/bash", "-il", "execute_jup"]
 
 #ENTRYPOINT ["jupyter", "notebook", "--no-browser"]
 
