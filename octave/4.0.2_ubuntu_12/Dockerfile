@@ -61,10 +61,18 @@ RUN octave --eval "more off; \
 RUN echo more off >> /etc/octave.conf
 RUN echo save_default_options\(\'-7\'\)\; >> /etc/octave.conf
 RUN echo graphics_toolkit gnuplot >> /etc/octave.conf
-RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/profile
-RUN echo "source /opt/minc-itk4/minc-toolkit-config.sh" >> /etc/bash.bashrc
+# This should be set in the minc-toolkit layer !
+ENV  MINC_TOOLKIT_VERSION="1.9.2-20140730"
+ENV PATH=/opt/minc-itk4/bin:/opt/minc-itk4/pipeline:${PATH}
+ENV PERL5LIB=/opt/minc-itk4/perl:/opt/minc-itk4/pipeline:${PERL5LIB}
+ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/minc-itk4/lib:/opt/minc-itk4/lib/InsightToolkit
+ENV MNI_DATAPATH=/opt/minc-itk4/share
+ENV MINC_FORCE_V2=1
+ENV MINC_COMPRESS=4
+ENV VOLUME_CACHE_THRESHOLD=-1
 
-# Command for build
+
+ #Command for build
 # docker build --no-cache -t="simexp/octave:4.0.2_ubuntu_12" .
 
 # Command to run bash (don't start octave)
