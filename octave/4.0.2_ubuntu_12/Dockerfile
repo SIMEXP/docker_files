@@ -42,7 +42,7 @@ RUN wget http://sourceforge.net/projects/octave/files/Octave%20Forge%20Packages/
 
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update
-RUN apt-get install --force-yes -y gcc-4.7 g++-4.7
+RUN apt-get install --force-yes -y gcc-4.7 g++-4.7 at
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.7 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.7
 RUN update-alternatives --set gcc /usr/bin/gcc-4.7
 
