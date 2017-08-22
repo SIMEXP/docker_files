@@ -134,5 +134,5 @@ RUN rm -r /tmp/ARPACK /tmp/SuiteSparse /tmp/OpenBLAS-0.2.19 /tmp/qrupdate-1.1.2 
 WORKDIR /tmp
 
 # Command for build
-# docker build --no-cache -t="simexp/octave:4.2.1_ubuntu_16" .
-# docker build -t="simexp/octave:4.2.1_ubuntu_16" .
+# docker build --no-cache -t="simexp/octave:4.2.1_cross_u16" .
+# docker build -t="simexp/octave:4.2.1_cross_u16" .
