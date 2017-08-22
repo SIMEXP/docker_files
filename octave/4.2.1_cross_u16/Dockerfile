@@ -101,7 +101,7 @@ WORKDIR /tmp/octave-4.2.1
 RUN ./configure LD_LIBRARY_PATH=/opt/all64/lib CPPFLAGS=-I/opt/all64/include LDFLAGS=-L/opt/all64/lib \
   JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
   --with-hdf5-includedir=/usr/include/hdf5/serial --with-hdf5-libdir=/usr/lib/x86_64-linux-gnu/hdf5/serial \
-   --enable-64 F77_INTEGER_8_FLAG='-fdefault-integer-8'
+   --enable-64 F77_INTEGER_8_FLAG='-fdefault-integer-8' > /dev/null 2>&1 
 RUN make -j 7
 RUN cp -r /opt/all64/lib/*  /usr/lib/.
 #RUN make check 

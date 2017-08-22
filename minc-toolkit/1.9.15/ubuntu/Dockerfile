@@ -43,6 +43,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /tmp
 COPY minc-toolkit-1.9.15-20170308-Ubuntu_16.04-x86_64.deb /tmp/minc-toolkit-1.9.15-20170308-Ubuntu_16.04-x86_64.deb
 RUN dpkg -i minc-toolkit-1.9.15-20170308-Ubuntu_16.04-x86_64.deb
+RUN rm /tmp/minc-toolkit-1.9.15-20170308-Ubuntu_16.04-x86_64.deb
 
 # minc-toolkit configuration parameters for 1.9.15-20170308
 ENV MINC_TOOLKIT /opt/minc/1.9.15
@@ -57,6 +58,7 @@ ENV VOLUME_CACHE_THRESHOLD -1
 ENV MANPATH /opt/minc/1.9.15/man:${MANPATH}
 
 
+ 
 #
 #ADD beast-library-1.1 /opt/minc-itk4/share/beast-library-1.1
 #ADD icbm152_model_09c /opt/minc-itk4/share/icbm152_model_09c
